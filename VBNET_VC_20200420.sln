@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Modul01_HelloWorld", "HelloWorld\Modul01_HelloWorld.vbproj", "{11CCAD98-8D22-42D5-98D2-9430DE70ECB6}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Lab01_MiniRechner", "MiniRechner\Lab01_MiniRechner.vbproj", "{939C9CB8-750E-44AB-9D33-127916121B9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11CCAD98-8D22-42D5-98D2-9430DE70ECB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11CCAD98-8D22-42D5-98D2-9430DE70ECB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CCAD98-8D22-42D5-98D2-9430DE70ECB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11CCAD98-8D22-42D5-98D2-9430DE70ECB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939C9CB8-750E-44AB-9D33-127916121B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939C9CB8-750E-44AB-9D33-127916121B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939C9CB8-750E-44AB-9D33-127916121B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939C9CB8-750E-44AB-9D33-127916121B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A33690D-85AA-4780-AE46-6FB0736E5E86}
+	EndGlobalSection
+EndGlobal
