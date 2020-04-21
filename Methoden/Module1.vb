@@ -49,7 +49,7 @@
         Dim dblErg As Double = Addiere(12.3, 45.8)
 
         'Funktionsaufruf (Addiere mit optionalem Parameter)
-        erg = Addiere(12, 12, 45)
+        erg = Addiere(12, 12, 45, 12)
 
         Console.ReadKey()
 
