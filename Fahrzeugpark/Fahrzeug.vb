@@ -1,7 +1,7 @@
 ﻿'Eine KLASSE ist ein Programmteil, welches die Struktur von bestimmten Objekten definiert. Alle Objekte, welche von dieser
 ''Klasse instanziert werden, besitzen die selben Methoden und Eigenschaften, welche aber unterschiedlich befüllt werden können
 ''und unabhängig von anderen gleichartigen Objekten agieren.
-Public Class Fahrzeug
+Public MustInherit Class Fahrzeug
 
 #Region "Felder und Properties"
     'FELDER sind die Variablen, welche jedes Objekt dieser Klasse besitzt und welche individuell befüllt werden können.
@@ -92,6 +92,7 @@ Public Class Fahrzeug
 
     Public Sub StoppeMotor()
         Zustand = False
+        AktGeschwindigkeit = 0
     End Sub
 
     Public Sub Beschleunige(a As Integer)
@@ -106,9 +107,11 @@ Public Class Fahrzeug
         End If
     End Sub
 
-    Public Function BeschreibeMich() As String
-        Return $"{Name} fährt mit {AktGeschwindigkeit} von {MaxGeschwindigkeit} km/h und kostet {Preis} Euro."
+    Public Overridable Function BeschreibeMich() As String
+        Return $"{Name} fährt mit {AktGeschwindigkeit} von {MaxGeschwindigkeit}km/h und kostet {Preis} Euro."
     End Function
+
+    Public MustOverride Sub Hupen()
 
 
 #End Region
