@@ -1,7 +1,15 @@
 ﻿'Eine KLASSE ist ein Programmteil, welches die Struktur von bestimmten Objekten definiert. Alle Objekte, welche von dieser
 ''Klasse instanziert werden, besitzen die selben Methoden und Eigenschaften, welche aber unterschiedlich befüllt werden können
 ''und unabhängig von anderen gleichartigen Objekten agieren.
+'Wenn eine Klassensignatur das Stichwort MUSTINHERIT beinhaltet, gilt die Klasse als abstarkt. D.h. von dieser Klasse dürfen
+''keine Objekte mehr erzeugt werden. Sie ist nur noch Vorlage für Kindklassen.
 Public MustInherit Class Fahrzeug
+
+    Public Shared AnzahlFahrzeuge As Integer = 0
+
+    Public Shared Sub ZeigeAnzahlFahrzeuge()
+        Console.WriteLine($"Es wurden {AnzahlFahrzeuge} gebaut.")
+    End Sub
 
 #Region "Felder und Properties"
     'FELDER sind die Variablen, welche jedes Objekt dieser Klasse besitzt und welche individuell befüllt werden können.
@@ -72,6 +80,8 @@ Public MustInherit Class Fahrzeug
         'Fixe Belegung von Feldern, die immer den gleichen Startwert haben sollen
         _aktGeschwindigkeit = 0
         _zustand = False
+
+        AnzahlFahrzeuge += 1
     End Sub
 
     'Der Destruktor wird von der GarbageCollection aufgerufen, wenn das entsprechende Objekt durch keine Variable mehr referenziert wird, und 
@@ -79,6 +89,7 @@ Public MustInherit Class Fahrzeug
     ''über die Zerstörung des Objekts hinausgehen befüllt werden (wie hier mit einer Konsolen-Ausgabe)
     Protected Overrides Sub Finalize()
         Console.WriteLine($"{Name} wurde zerstört")
+        AnzahlFahrzeuge = -1
     End Sub
 #End Region
 
@@ -107,10 +118,15 @@ Public MustInherit Class Fahrzeug
         End If
     End Sub
 
+    'Als OVERRIDABLE markierte Methoden erlauben erbenden Klassen diese zu überschreiben, so dass bei Methodenaufruf die Methode
+    ''der Kindklasse ausgeführt wird
     Public Overridable Function BeschreibeMich() As String
-        Return $"{Name} fährt mit {AktGeschwindigkeit} von {MaxGeschwindigkeit}km/h und kostet {Preis} Euro."
+        Return $"{Name} bewegt sich mit {AktGeschwindigkeit} von {MaxGeschwindigkeit}km/h und kostet {Preis} Euro."
     End Function
 
+    'Abstarkte Methoden (markiert mit dem MUSTOVERRIDE-Stichwort) besitzen nur eine Signatur. Die Implementierung des Körpers
+    ''erfolgt individuell in den Kindklassen, welche dazu gewungen werden. Abstrakte Methoden dürfen nur in eine abstrakten
+    ''Klasse geschrieben werden
     Public MustOverride Sub Hupen()
 
 

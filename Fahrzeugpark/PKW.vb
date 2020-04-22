@@ -1,26 +1,46 @@
-﻿Public Class PKW
+﻿'vgl auch Schiff
+Public Class PKW
     Inherits Fahrzeug
+    Implements IBewegbar
 
-    Private _anzahlTueren As Integer
-    Public Property AnzahlTueren() As Integer
+    Private _anzahlTüren As Integer
+    Public Property AnzahlTüren() As Integer
         Get
-            Return _anzahlTueren
+            Return _anzahlTüren
         End Get
         Set(ByVal value As Integer)
-            _anzahlTueren = value
+            _anzahlTüren = value
+        End Set
+    End Property
+
+    Private _anzahlRäder As Integer
+    Public Property AnzahlRäder As Integer Implements IBewegbar.AnzahlRäder
+        Get
+            Return _anzahlRäder
+        End Get
+        Set(value As Integer)
+            _anzahlRäder = value
         End Set
     End Property
 
     Public Sub New(name As String, maxG As Integer, preis As Double, anzT As Integer)
         MyBase.New(name, maxG, preis)
-        _anzahlTueren = anzT
+        _anzahlTüren = anzT
     End Sub
 
+    'Überschreibende Methode (Benötigt eine gleichnamige, mit OVERRIDABLE markierte Methode in der Mutterklasse)
     Public Overrides Function BeschreibeMich() As String
-        Return "Der PKW " + MyBase.BeschreibeMich() + $" Er hat {AnzahlTueren} Türen."
+        Return "Der PKW " + MyBase.BeschreibeMich() + $" Er hat {AnzahlTüren} Türen."
     End Function
 
+    'Implementierung der abstrakten (MustOverride-)Methode der Fahrzeug-Klasse
     Public Overrides Sub Hupen()
         Console.WriteLine("HupHup")
+    End Sub
+
+    Public Sub Crash() Implements IBewegbar.Crash
+        AnzahlRäder -= 1
+        AnzahlTüren -= 1
+        Console.WriteLine("Da war ein Baum im Weg.")
     End Sub
 End Class
